@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--    ========================================-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    <!-- JQuery links  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <!--High CHART LIVE  -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <!--    ========================================-->
+    <!-- pERMISSION for camera Access -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+        
+		<!--adding socketio connection-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+        
+		<!-- Socket Connectivity -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+		
+		<!-- saving the whole script to the local machine -->
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+ 
+
+
+    <title>Live Streaming Demonstration</title>
+    <style>
+        .mail {
+            border-color: lightcyan;
+            color: lightcyan;
+        }
+
+        .mail:hover {
+            color: black;
+            background-color: lightcyan;
+        }
+
+        .signup {
+            background-color: #28292B;
+            color: lightcyan;
+        }
+
+        .signup:hover {
+            color: black;
+            background-color: lightcyan;
+            border-color: black;
+        }
+
+        .login {
+            background-color: #28292B;
+            color: lightcyan;
+        }
+
+        .login:hover {
+            color: black;
+            background-color: lightcyan;
+            border-color: black;
+        }
+
+        .results {
+            background-color: black;
+            color: lightcyan;
+        }
+
+        .results:hover {
+            border-color: black;
+            background-color: lightcyan;
+
+
+        }
+
+        a {
+            color: lightcyan;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="">
+        <div class="">
+            <div class="">
+                <center>
+                    <div class="container-fluid bg-dark header-height row " id="home">
+                        <div class="row col mt-4 justify-content-around">
+                            <!--                    <div class="mr-4 ml-4"><img src="images/logo.png" class="rounded-circle logo"></div>-->
+                            <div class="col-md-4" style="color: lightcyan">
+                                <span class="h1">Capstone</span>
+
+                            </div>
+                            <div class=" mt-2 col justify-content-end col-md-4">
+
+                                <div class="mr-4 ml-4">
+
+                                    <!--                                <a href = "mailto: mymopeds@gmail.com">Mail us:</a>-->
+
+
+
+                                    <div href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mymopeds@gmail.com" target="_blank" style="text-decoration:none;" class="mail"> Mail us</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </center>
+                <!--/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*-->
+
+                <div>
+                    <center>
+                        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightcyan">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"></a>
+
+                            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-left">
+                                    <li class="nav-item ">
+                                        <a class="nav-link h6" href="#home">Home<span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link h6" href="#about">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link h6" href="#priceDetails">Pricing</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link h6" href="#faqs">FAQs</a>
+                                    </li>
+                                </ul>
+                                <form class="form-inline my-2 my-lg-0">
+
+                                    <button class="signup btn my-2 my-sm-0 mr-4" type="button" data-toggle="modal" data-target="#Signup">SignUp</button>
+                                    <button class="login btn my-2 my-sm-0 mr-4" type="button" data-toggle="modal" data-target="#Login">Login</button>
+
+                                </form>
+                            </div>
+                        </nav>
+                    </center>
+                </div>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner min-height">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 min-height" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3QjG5sOm1w-iHatDiNjfc7RMhHePydBgS7A&usqp=CAU" alt="First slide" style="height:700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 min-height" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR54pkPss8aV8_BdK1n8-XUX1za8PTOGzy-8A&usqp=CAU" alt="Second slide" style="height:700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 min-height" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStyOme-Lw4NPiv7eIvDc_mLnPbEb0ZKnNGnw&usqp=CAU" alt="Third slide" style="height:700px;">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!----------------------streaming-------------------------------------->
+    <center>
+        <div style="background-color: lightcyan">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8  offset-lg-2 mb-4">
+                        <h3 class="mt-5">Live Streaming</h3>
+
+
+                        <img src="{{ url_for('video_feed') }}" />
+
+
+
+
+                        <button class="btn results my-2 my-sm-0 mr-4 border-d rounded"> <a href="show_result" style="text-decoration: none;">Show result</a></button>
+
+
+
+                    </div>
+                    <div class="container-fluid">
+                         Example row of columns 
+                        <div class="row">
+                            <div class="container-fluid" id="data-container">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </center>
+    <!--------------------------------------------------------------------------->
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4 text-light" style="background-color:#000000; ">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Content -->
+                    <h4 class="text-uppercase mb-4">| CORPORATE OFFICE</h4>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmmbpTaAqHbNz_NW6Qd-15ZLRcj65-Y0VjVg&usqp=CAU" style="width:30px; height:30px; border-radius:50%;  margin-left:10px;">
+                    Capstone
+                    <div class="ml-5 mb-3">Janta colony,Rampura Phul <br>Distt. Bathinda(Punjab) <br>India</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSnZRdHErSAcRramS6PVcIZ7vGtuIr1ixi1Q&usqp=CAU" style="width:20px; height:20px; border-radius:50%;  margin-left:12px;"> Phone: +91 9464024865
+                    <div class="mb-3" style="margin-left:90px;">+917973529821</div>
+                    <div style="margin-right:-30px;"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-EwzMAXqzTwwzB-pO5mFfz6qOZkcantiIKg&usqp=CAU" style="width:25px; height:25px; border-radius:50%;  margin-left:10px;">
+                        Email: support@capstone.com</div>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none" style="background-color:white;">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1 text-center">
+
+                    <!-- Contact details -->
+                    <h5 class="text-uppercase mb-4">
+                        <p>We are available
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5w-nZFKmCRJoFX9CPKr2W-9sO57s_DPjnvg&usqp=CAU" style="width:40px; height:40px; border-radius:50%;"></p>
+                        <p>for our clients </p>
+                    </h5>
+
+
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none" style="background-color:white;">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h4 class="text-uppercase mb-4">| Follow Us :</h4>
+
+                    <img src="https://i.pinimg.com/474x/38/9b/14/389b14861f4be0c8d84876b3dda9afc0.jpg" style="width:30px; height:30px; border-radius:50%;  margin-left:10px;">
+                    <img src="data:image/png;base64,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" style="width:30px; height:30px; border-radius:50%;  margin-left:10px;">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp1fVWLNe9u6OylmjsoT-l3CqnOh5hdjwzGg&usqp=CAU" style="width:30px; height:30px; border-radius:50%; margin-left:10px;">
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <hr style="background-color:white;">
+        <div class="footer-copyright text-center pb-3">© 2020 Copyright: capstone.com
+
+        </div>
+        <!-- Copyright --> 
+
+    </footer>
+    <!-- Footer -->
+	     <div id="container">
+            <div>
+            <video autoplay="true" id="videoElement"></video>
+                <canvas id="canvasElement"></canvas>
+
+                <img id="photo">
+            </div>
+        </div>
+	
+	
+
+</body>
+<script>
+    var chart;
+
+    function requestData() {
+        // Ajax call to get the Data from Flask
+        var requests = $.get('/data');
+
+
+        var tm = requests.done(function(result) {
+            var series = chart.series[0],
+                shift = series.data.length > 20;
+
+            // add the point
+            chart.series[0].addPoint(result, true, shift);
+
+            // call it again after one second
+            setTimeout(requestData, 1000);
+        });
+    }
+
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'data-container',
+                defaultSeriesType: 'spline',
+                events: {
+                    load: requestData
+                }
+            },
+            title: {
+                text: 'Live Data'
+            },
+            xAxis: {
+                type: 'datetime',
+            
+                
+            },
+            yAxis: {
+                minPadding: 0.2,
+                maxPadding: 0.2,
+                title: {
+                    text: 'Attentiveness',
+                    margin: 80
+                }
+            },
+            series: [{
+                name: 'Attentiveness vs Time',
+                data: []
+            }]
+        });
+
+    });
+
+</script>
+
+</html>

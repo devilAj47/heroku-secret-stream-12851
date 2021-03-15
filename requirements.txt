@@ -1,0 +1,17 @@
+Flask==1.1.1
+gunicorn==19.9.0
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+numpy==1.16.0
+matplotlib
+mpld3
+scipy==1.4.1
+pandas
+keras
+openpyxl
+xlsxwriter
+h5py==2.10.0
+opencv-python--headless
+tensorflow ==2.3.0
