@@ -161,10 +161,7 @@ class VideoCamera(object):
     wwe=1
     def __init__(self):
         self.video = cv.VideoCapture(0)
-        '''
-        for ip camera use - rtsp://username:password@ip_address:554/user=username_password='password'_channel=channel_number_stream=0.sdp' 
-        for local webcam use cv.VideoCapture(0)
-        '''
+
 
     def __del__(self):
         self.video.release()        
